@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.scss';
 
-const modalRoot = document.getElementById('modal-root');
+const modalRoot = document.getElementById('root');
+
+// const modalRoot = document.getElementById('modal-root');
 
 export class Modal extends Component {
   componentDidMount() {

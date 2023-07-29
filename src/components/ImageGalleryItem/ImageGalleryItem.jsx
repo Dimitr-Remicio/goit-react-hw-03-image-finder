@@ -18,18 +18,22 @@ export class ImageGalleryItem extends Component {
   render() {
     const { url, alt, largeImage } = this.props;
     const { isShowModal } = this.state;
+    let modal;
 
-    return (
-      <>
-        <div className={styles['Item']} onClick={this.toggleModal}>
-          <img className={styles['card']} src={url} alt={alt} loading="lazy" />
-        </div>
-        {isShowModal && (
-          <Modal onClose={this.toggleModal}>
+    if (isShowModal) {
+      modal = <Modal onClose={this.toggleModal}>
             <img alt={alt} src={largeImage} />
           </Modal>
-          
-        )}
+    } else{
+      <h1></h1>
+    }
+      
+    return (
+      <>
+        <div className={styles.Item} onClick={this.toggleModal}>
+          <img className={styles['card']} src={url} alt={alt} loading="lazy" />
+        </div>
+        {modal}
       </>
     );
   }
